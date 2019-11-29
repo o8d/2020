@@ -51,7 +51,7 @@
         "url": "https://fonts.googleapis.com/css?family=Didact+Gothic:400"
       }
     ],
-    "uniqCompNum": 182,
+    "uniqCompNum": 184,
     "versionPublish": "4.11.6",
     "screenshot": "screenshot.png",
     "siteUrl": "https://o8d.github.io/2020/",
@@ -254,11 +254,115 @@
           "_name": "header1",
           "_customHTML": "<section class=\"header1\" group=\"Headers\" mbr-class=\"{'mbr-fullscreen': fullScreen}\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\" checked>\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"15\" step=\"1\" value=\"15\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"15\" step=\"1\" value=\"15\" condition=\"fullScreen == false\">\n    <input type=\"checkbox\" name=\"halfSize\" title=\"Half Size\">\n    <select title=\"Align\" name=\"alignHalf\" condition=\"halfSize\">\n        <option value=\"1\" selected>Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\">\n    <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n    <select title=\"Align\" name=\"alignTitle\" condition=\"showTitle || showSubtitle || showText || showButtons\">\n        <option value=\"1\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\" selected>Right</option>\n    </select>\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" required>\n        <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/2019-11-30-2.45.13.png\" selected>\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\">\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid': fullWidth}\">\n        <div class=\"mbr-row\" mbr-class=\"{'align-left': alignTitle==1,\n                        'align-center': alignTitle==2,\n                        'align-right': alignTitle==3,\n                        'mbr-jc-c':alignHalf==2,\n                        'mbr-jc-e':alignHalf==3}\" mbr-if=\"showTitle || showSubtitle || showText || showButtons\">\n            <div class=\"title-block mbr-col-sm-12 mbr-col-md-12\" mbr-class=\"{'mbr-col-lg-6': halfSize,\n                             'mbr-col-lg-12': !halfSize}\">\n                <h1 class=\"mbr-section-title mbr-fonts-style mbr-bold\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title, .mbr-section-btn\">Minimal</h1>\n                <h2 class=\"mbr-section-subtitle mbr-fonts-style\" mbr-class=\"{'mbr-pt-3': showTitle}\" mbr-theme-style=\"display-2\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle, .mbr-section-btn\">Interior Design Company</h2>\n                <p class=\"mbr-text mbr-fonts-style\" mbr-class=\"{'mbr-pt-2': showTitle || showSubtitle}\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-section-btn, .mbr-text\">Click on the text in the block to select it and enter the text you want to show.</p>\n                <div mbr-buttons class=\"mbr-section-btn\" mbr-class=\"{'mbr-pt-4':showSubtitle||showTitle||showText}\" mbr-theme-style=\"display-7\" data-toolbar=\"-mbrBtnMove\" mbr-if=\"showButtons\">\n                    <a class=\"btn-primary btn\">Learn How</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_cid": "rJeXMcfHbF",
+          "_anchor": "header1-50",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {},
-          "_anchor": "header1-50"
+          "_params": {}
+        },
+        {
+          "alias": "formbuilder",
+          "_isSecondary": true,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            ".mbr-overlay": {
+              "background-color": "@overlayColor",
+              "opacity": "@overlayOpacity"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@customStyle)": {
+              ".form-control, .field-input": {
+                "padding": "0.5rem",
+                "background-color": "@fieldColor",
+                "border-color": "@borderColor",
+                "color": "@formText",
+                "transition": "0.4s",
+                "box-shadow": "none",
+                "outline": "none",
+                "&::-webkit-input-placeholder, &::-webkit-input-placeholder": {
+                  "color": "@formPlaceholder"
+                },
+                "&:-moz-placeholder, &:-moz-placeholder": {
+                  "color": "@formPlaceholder"
+                },
+                "&:hover, &:focus": {
+                  "background-color": "@fieldHover",
+                  "border-color": "@borderHover",
+                  "color": "@formFocusText",
+                  "box-shadow": "none",
+                  "outline": "none",
+                  "&::-webkit-input-placeholder, &::-webkit-input-placeholder": {
+                    "color": "@formFocusPlaceholder"
+                  },
+                  "&:-moz-placeholder, &:-moz-placeholder": {
+                    "color": "@formFocusPlaceholder"
+                  }
+                }
+              },
+              ".jq-number__spin:hover, .jq-number__spin:focus": {
+                "background-color": "@fieldHover",
+                "border-color": "@borderHover",
+                "color": "contrast(@formText, #000000, #ffffff, 30%)",
+                "box-shadow": "none",
+                "outline": "none"
+              },
+              ".jq-number__spin": {
+                "background-color": "@fieldColor",
+                "border-color": "@borderColor",
+                "color": "@formText",
+                "transition": "0.4s",
+                "box-shadow": "none",
+                "outline": "none"
+              },
+              ".jq-selectbox li, .jq-selectbox li": {
+                "background-color": "@fieldColor",
+                "color": "contrast(@fieldColor, #000000, #ffffff, 30%)"
+              },
+              ".jq-selectbox li:hover, .jq-selectbox li.selected": {
+                "background-color": "@fieldHover",
+                "color": "contrast(@fieldHover, #000000, #ffffff, 30%)"
+              },
+              ".jq-selectbox:hover .jq-selectbox__trigger-arrow, .jq-number__spin.minus:hover:after, .jq-number__spin.plus:hover:after": {
+                "border-top-color": "@fieldColor",
+                "border-bottom-color": "@fieldColor"
+              },
+              ".jq-selectbox .jq-selectbox__trigger-arrow, .jq-number__spin.minus:after, .jq-number__spin.plus:after": {
+                "border-top-color": "@fieldHover",
+                "border-bottom-color": "@fieldHover"
+              }
+            },
+            "& when (@customStyle), (@disableElements)": {
+              "input::-webkit-clear-button": {
+                "display": "none"
+              },
+              "input::-webkit-inner-spin-button": {
+                "display": "none"
+              },
+              "input::-webkit-outer-spin-button": {
+                "display": "none"
+              },
+              "input::-webkit-calendar-picker-indicator": {
+                "display": "none"
+              }
+            },
+            "H4": {
+              "color": "#f5f2f0"
+            }
+          },
+          "_name": "formbuilder",
+          "_customHTML": "<section class=\"form\" group=\"Form\" plugins=\"amp-main, amp-form, amp-mustache\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"4\">\n        <header>Style</header>\n        <input type=\"checkbox\" name=\"customStyle\" title=\"Custom Style\">\n        <input type=\"checkbox\" name=\"disableElements\" title=\"Disable Control\">\n        <input type=\"color\" name=\"fieldColor\" title=\"Field\" value=\"#ffffff\" condition=\"customStyle\">\n        <input type=\"color\" name=\"fieldHover\" title=\"Field Hover\" value=\"#efefef\" condition=\"customStyle\">\n        <input type=\"color\" name=\"borderColor\" title=\"Border\" value=\"#cccccc\" condition=\"customStyle\">\n        <input type=\"color\" name=\"borderHover\" title=\"Border Hover\" value=\"#cccccc\" condition=\"customStyle\">\n        <input type=\"color\" name=\"formText\" title=\"Text\" value=\"#000000\" condition=\"customStyle\">\n        <input type=\"color\" name=\"formFocusText\" title=\"Text Focus\" value=\"#232323\" condition=\"customStyle\">\n        <input type=\"color\" name=\"formPlaceholder\" title=\"Placeholders\" value=\"#c1c1c1\" condition=\"customStyle\">\n        <input type=\"color\" name=\"formFocusPlaceholder\" title=\"Placeholders Focus\" value=\"#c1c1c1\" condition=\"customStyle\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../assets/background.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#d24747\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.4\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"(overlay && bg.type=='image')\"></div>\n    <div class=\"container\">\n        <div class=\"row\">\n            <div mbr-form class=\"col-lg-8 mx-auto mbr-form\">\n<!--Formbuilder Form-->\n<form action=\"8opendoor8@gmail.com\" name=\"Form Name\" method=\"POST\" data-rcpha_sitekey=\"\" data-rcpha_secretkey=\"\" class=\"mbr-form\">\n<div class=\"mbr-row\">\n<div submit-success class=\"mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12\">\n<template data-form-alert type=\"amp-mustache\">歡迎參加</template>\n</div>\n<div submit-error class=\"mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12\">\n<template data-form-alert type=\"amp-mustache\">歡迎參加</template>\n</div>\n</div>\n<div class=\"dragArea mbr-row\">\n<div class=\"mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12\">\n<h4 mbr-theme-style=\"display-5\" class=\"mbr-fonts-style mbr-fonts-style\">登記參加</h4>\n</div>\n<div class=\"mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12\">\n<hr>\n</div>\n<div data-for=\"form[data][0][1]\" class=\"mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field\">\n<input type=\"hidden\" name=\"form[data][0][0]\" value=\"姓名\">\n<input type=\"text\" name=\"form[data][0][1]\" placeholder=\"Name\" data-form-field=\"姓名\" mbr-theme-style=\"display-7\" class=\"field-input\" value=\"姓名\">\n</div>\n<div data-for=\"form[data][1][1]\" class=\"mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field\">\n<input type=\"hidden\" name=\"form[data][1][0]\" value=\"email\">\n<input type=\"email\" name=\"form[data][1][1]\" placeholder=\"Email\" data-form-field=\"email\" mbr-theme-style=\"display-7\" class=\"field-input\" value>\n</div>\n<div data-for=\"form[data][2][1]\" class=\"mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field\">\n<input type=\"hidden\" name=\"form[data][2][0]\" value=\"phone\">\n<input type=\"tel\" name=\"form[data][2][1]\" placeholder=\"Phone\" pattern=\"[0-9]{3}-[0-9]{3}-[0-9]{4}\" data-form-field=\"phone\" mbr-theme-style=\"display-7\" class=\"field-input\" value>\n</div>\n<div data-for=\"form[data][3][1]\" class=\"mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field\">\n<input type=\"hidden\" name=\"form[data][3][0]\" value=\"message\">\n<textarea name=\"form[data][3][1]\" placeholder=\"Message\" data-form-field=\"message\" mbr-theme-style=\"display-7\" class=\"field-input\"></textarea>\n</div>\n<div class=\"mbr-col-auto\" mbr-buttons=\"true\" mbr-theme-style=\"display-7\" data-toolbar=\"-mbrBtnMove,-mbrLink,-mbrBtnRemove,-mbrBtnAdd\"><a type=\"submit\" class=\"btn btn-warning\" data-app-placeholder=\"Type Text\">好了</a></div>\n</div>\n</form><!--Formbuilder Form-->\n</div>\n        </div>\n    </div>\n</section>",
+          "_cid": "rJeZhYIfC1",
+          "_anchor": "formbuilder-53",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
         },
         {
           "alias": false,

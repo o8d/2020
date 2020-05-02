@@ -87,7 +87,7 @@
       }
     ],
     "imageResize": false,
-    "uniqCompNum": 24,
+    "uniqCompNum": 25,
     "versionPublish": "4.12.3",
     "screenshot": "screenshot.png",
     "favicon": "@PROJECT_PATH@/assets/images/noun-1255-cc.svg",
@@ -264,59 +264,23 @@
                 "opacity": "@overlayOpacity"
               }
             },
-            ".mbr-row": {
-              "-webkit-align-items": "center",
-              "align-items": "center",
-              ".text-column": {
-                "padding-right": "2rem"
-              },
-              "& when (@reverseContent)": {
-                "-webkit-flex-direction": "row-reverse",
-                "flex-direction": "row-reverse",
-                ".text-column": {
-                  "padding-right": "0",
-                  "padding-left": "2rem"
-                }
+            "& when (@showText)": {
+              ".mbr-text": {
+                "padding-top": "0"
               }
             },
-            ".image-block": {
-              "width": "100%"
-            },
-            ".btn-wrap": {
-              "text-align": "center"
-            },
-            ".mbr-text": {
+            ".mbr-section-title": {
               "color": "#7f7e7e"
-            },
-            "@media (max-width: 991px)": {
-              ".video-wrap": {
-                "padding-top": "2rem"
-              },
-              ".text-column": {
-                "padding": "0 15px !important"
-              }
-            },
-            "@media (max-width: 767px)": {
-              ".text-wrap,.video-wrap": {
-                "text-align": "center",
-                "width": "100%"
-              },
-              ".mbr-section-title,.mbr-text,.mbr-section-btn": {
-                "text-align": "center"
-              }
-            },
-            ".mbr-text, .mbr-section-btn,.btn-wrap": {
-              "text-align": "center"
             }
           },
-          "_name": "header11",
-          "_customHTML": "<section class=\"header11\" group=\"Headers\" plugins=\"amp-main\" mbr-class=\"{'mbr-fullscreen': fullScreen}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\" checked>\n        <input type=\"checkbox\" title=\"Image on Right/Left\" name=\"reverseContent\">\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/0429-2022.jpg\" selected>\n            <input type=\"color\" title=\"Background Color\" value=\"#fce1ce\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type!='color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#fce1ce\" condition=\"bg.type!='color' && overlay\">\n        <input type=\"range\" inline title=\"Overlay Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.2\" condition=\"bg.type!='color' && overlay\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n    <div class=\"container\">    \n        <div class=\"mbr-row text-wrap\">\n            <div class=\"mbr-col-lg-6 mbr-col-md-12 text-column\">\n                <h1 class=\"mbr-section-title mbr-fonts-style align-left mbr-black l-spacing3\" mbr-theme-style=\"display-2\" data-app-selector=\".mbr-section-title\" mbr-if=\"showTitle\">Header with Image</h1>\n\n                <p class=\"mbr-fonts-style mbr-text align-left mbr-white\" mbr-theme-style=\"display-6\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn,.btn-wrap\"><br><br><br><br>社區安逸</p>\n                <div class=\"mbr-section-btn align-left\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-md btn-primary\" href=\"index.html#slider2-5\" data-app-placeholder=\"Type Text\">home</a></div>\n            </div>\n            <div class=\"mbr-col-lg-6 mbr-col-md-12 video-wrap\">\n                <div class=\"image-block\">\n                    <amp-img src=\"@PROJECT_PATH@/assets/images/0429-2022.jpg\" layout=\"responsive\" width=\"740.5244338498212\" height=\"327\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                        <div placeholder class=\"placeholder\"></div>\n                        <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/0429-2022.jpg\" alt=\"Mobirise\" title>\n                    </amp-img>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
-          "_cid": "rXRKPmEmII",
-          "_anchor": "header11-n",
+          "_name": "features16",
+          "_customHTML": "<section class=\"features16\" group=\"Features\" plugins=\"amp-main\" mbr-class=\"{'mbr-fullscreen': fullScreen}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\">\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\" checked>\n\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/0429-2022.jpg\" selected>\n            <input type=\"color\" title=\"Background Color\" value=\"#704170\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked condition=\"bg.type!='color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#f9d5bd\" condition=\"bg.type!='color' && overlay\">\n        <input type=\"range\" inline title=\"Overlay Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"bg.type!='color' && overlay\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n    <div class=\"container align-center\">\n        <h1 class=\"mbr-section-title mbr-fonts-style mbr-bold\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\"><br><br>社區安逸</h1>\n        <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut id odio ad dolore modi tenetur vel qui necessitatibus veniam, voluptatum. Soluta impedit esse quos, debitis fuga illum pariatur nam placeat.\n        </p>\n\n        <div class=\"mbr-section-btn\" mbr-theme-style=\"display-4\" mbr-buttons data-toolbar=\"-mbrBtnMove\" mbr-if=\"showButtons\"><a class=\"btn-underline text-info\" href=\"index.html#header1-8\" data-app-placeholder=\"Type Text\">home</a></div>\n    </div>\n</section>",
+          "_cid": "rXRN01N4bh",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {}
+          "_params": {},
+          "_anchor": "features16-o"
         },
         {
           "alias": false,
